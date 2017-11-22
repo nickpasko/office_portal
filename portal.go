@@ -1,26 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
+	"github.com/nickpasko/office_portal/handlers"
 	"net/http"
+	"fmt"
 )
 
-type Page struct {
-	Title string
-	Body []byte
-}
-
-func (p *Page) save() error {
-	filename := p.Title + ".txt"
-	return ioutil.WriteFile(filename, p.Body, 0600)
-}
-
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello, Konig Labs!")
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8081", nil)
+	addr := ":8081"
+
+	http.HandleFunc("/api/wc/status", handlers.WcStatusHandler)
+	http.HandleFunc("/index/", handlers.IndexHandler)
+
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+
+	fmt.Printf("Listening on addr: %s\n", addr)
+	http.ListenAndServe(addr, nil)
 }
+
