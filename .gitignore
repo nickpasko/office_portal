@@ -13,3 +13,10 @@
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
 .idea
+
+# VS Code catalog
+.vscode/
+
+# Binary compiled app
+portal
+office_portal
