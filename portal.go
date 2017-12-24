@@ -11,6 +11,7 @@ func main() {
 
 	http.HandleFunc("/", handlers.IndexHandler)
 	http.HandleFunc("/index/", handlers.IndexHandler)	
+	http.HandleFunc("/catch_hans/", handlers.CatchHansHandler)
 	http.HandleFunc("/api/wc/status", handlers.WcStatusHandler)
 	
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
