@@ -20,7 +20,7 @@ Software was developed by [KonigLabs](http://koniglabs.com):
 
 See LICENCE file
 
-## What indluded
+## What included
 
 * ***/handlers*** - TBA
 

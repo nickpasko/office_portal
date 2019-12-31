@@ -7,11 +7,11 @@ import (
 )
 
 func CatchHansHandler(w http.ResponseWriter, r *http.Request) {
-	index, err := template.ParseFiles("templates/hans.html")
+	hans, err := template.ParseFiles("templates/hans.html")
 	if err != nil {
 		fmt.Fprint(w, "Frag! Template not found!")
 		return
 	}
 
-	index.Execute(w, nil)
+	hans.Execute(w, nil)
 }
